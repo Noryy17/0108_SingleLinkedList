@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string.h>
 using namespace std;
 
 
@@ -37,9 +38,22 @@ class List
             START = nodeBaru;
             return;
         }
-        Node *previous = START;
+        Node *current = START;
         Node *previous = START;
 
         while ((current != NULL) && (nim >= current->noMhs))
+        {
+            if (nim == current->noMhs)
+            {
+                cout <<"\nDuplikasi noMhs tidak diijinkan\n";
+                return;
+            }
+            previous = current;
+            current = current->next;
+        }
+
+        nodeBaru->next = current;
+        previous->next = nodeBaru;
     }
+    
 };
