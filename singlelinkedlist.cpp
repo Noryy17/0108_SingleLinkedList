@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string.h>
 using namespace std;
 
 
@@ -102,7 +101,7 @@ int main (){
     List mhs;
     int nim ;
     char ch;
-    while (1){
+    do{
         cout << "Menu" <<endl;
         cout << endl;
         cout << "1. Menambahkan data ke dalam list" <<endl;
@@ -113,7 +112,66 @@ int main (){
         cout << "masukkan pilihan (1-5)" <<endl;
         cin >> ch;
 
+        switch (ch){
+            case '1' :{
+                mhs.addNode();
+                break;
+            }
 
-    }
+            case '2' :{
+                if(mhs.listEmpty()){
+                    cout << endl 
+                    << "List Kosong" <<endl;
+                    break;
+                }
+                cout <<endl;
+                cin >> nim;
+                if (mhs.delNode(nim) == false){
+                    cout <<endl
+                    << "Data Tidak Ditemukan " << endl;
+                }
+                else{
+                    cout <<endl
+                    <<"Data dengan Nomor Mahasiswa " << nim << " Berhasil Dihapus " << endl;
+                }
+               
+            }
+            break;
+            case '3':{
+                mhs.traverse();
+            }
+            break;
+            case '4':{
+                if(mhs.listEmpty()== true){
+                    cout << "\nList Kosong.\n";
+                    break;
+                }
+                Node *previous, *current;
+                cout << endl<<"Masuukkan no Mahasiswa yang dicari : ";
+                cin >> nim;
+                if (mhs.Search(nim, &previous, &current) == false)
+                cout <<endl
+                <<"Data Tidak Ditemukan" << endl;
+                else
+                {
+                    cout << endl
+                    << "Data Ditemukan " << endl;
+                    cout << "\n.No Mahasiswa : " <<current->noMhs << endl;
+                }
+            }
+            break;
+            case '5':
+            {
+            }
+            break;
+            default:
+            {
+                cout << "Pilihan Salah !." <<endl;
+            }
+            break;
+        }
+
+
+    }while (ch !=5);
 }
    
