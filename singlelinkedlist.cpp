@@ -23,5 +23,12 @@ class List
         int nim;
         cout << "\nMasukksan Nomor Mahasiswa : ";
         cin >> nim;
+
+        Node *nodeBaru = new Node;
+        nodeBaru->noMhs = nim;
+
+        if (START == NULL || nim <= START ->noMhs)
+        {
+        }
     }
 };
