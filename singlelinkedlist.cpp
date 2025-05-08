@@ -19,4 +19,9 @@ class List
         START = NULL;
     }
 
-    
+    void addNode(){
+        int nim;
+        cout << "\nMasukksan Nomor Mahasiswa : ";
+        cin >> nim;
+    }
+};
